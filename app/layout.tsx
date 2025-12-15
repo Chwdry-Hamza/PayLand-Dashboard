@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             )}
 
             {/* Main Content */}
-            <main className={`flex-1 overflow-auto ${isAuthPage ? '' : 'bg-[#0f0f1a]'}`}>
+            <main className={`flex-1 overflow-auto ${isAuthPage ? '' : 'bg-[#0f0f1a] pb-20 md:pb-0'}`}>
               {children}
             </main>
           </div>
