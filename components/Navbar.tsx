@@ -52,7 +52,7 @@ export default function Navbar({
           setEmail(user.email);
         } else if (user._id) {
           try {
-            const response = await axios.get(`https://pay-land-backoffic.vercel.app/user/${user._id}`);
+            const response = await axios.get(`/api/user/${user._id}`);
             if (response.data.user) {
               setEmail(response.data.user.email || 'N/A');
               const storage = localStorage.getItem('user') ? localStorage : sessionStorage;
@@ -88,7 +88,7 @@ export default function Navbar({
         }
 
         console.log('Fetching recent contacts...');
-        const response = await axios.get('https://pay-land-backoffic.vercel.app/contact/recent-contacts', {
+        const response = await axios.get('/api/contact/recent-contacts', {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -141,10 +141,10 @@ export default function Navbar({
         if (!token) return;
 
         const [contactsRes, usersRes] = await Promise.all([
-          axios.get('https://pay-land-backoffic.vercel.app/contact', {
+          axios.get('/api/contact', {
             headers: { Authorization: `Bearer ${token}` }
           }).catch(() => ({ data: { contacts: [] } })),
-          axios.get('https://pay-land-backoffic.vercel.app/user', {
+          axios.get('/api/user', {
             headers: { Authorization: `Bearer ${token}` }
           }).catch(() => ({ data: { users: [] } }))
         ]);

@@ -40,7 +40,7 @@ export default function SignUpPage() {
     }
 
     try {
-      const response = await fetch('https://pay-land-backoffic.vercel.app/user/send-signup-otp', {
+      const response = await fetch('/api/user/send-signup-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
@@ -77,7 +77,7 @@ export default function SignUpPage() {
     };
 
     try {
-      const response = await fetch('https://pay-land-backoffic.vercel.app/user/signup', {
+      const response = await fetch('/api/user/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userData),

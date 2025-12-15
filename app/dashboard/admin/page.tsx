@@ -43,11 +43,11 @@ export default function AdminDashboard() {
         };
 
         const [contactRes, userRes] = await Promise.all([
-          axios.get('https://pay-land-backoffic.vercel.app/contact', config).catch(err => {
+          axios.get('/api/contact', config).catch(err => {
             console.error('Contact API error:', err);
             return { data: { contacts: [] } };
           }),
-          axios.get('https://pay-land-backoffic.vercel.app/user', config).catch(err => {
+          axios.get('/api/user', config).catch(err => {
             console.error('User API error:', err);
             return { data: { users: [] } };
           })

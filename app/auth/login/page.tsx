@@ -38,7 +38,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const response = await axios.post('https://pay-land-backoffic.vercel.app/user/login', { username, password });
+      const response = await axios.post('/api/user/login', { username, password });
 
       console.log('Login response:', response);
       console.log('Response data:', response.data);
@@ -87,7 +87,7 @@ export default function LoginPage() {
 
     try {
       // First check if email exists in database
-      const checkResponse = await axios.post('https://pay-land-backoffic.vercel.app/user/check-email', { email: forgotEmail });
+      const checkResponse = await axios.post('/api/user/check-email', { email: forgotEmail });
 
       if (!checkResponse.data.exists) {
         setForgotPasswordError('Email not found. Please check and try again.');
@@ -96,7 +96,7 @@ export default function LoginPage() {
       }
 
       // If email exists, send OTP
-      await axios.post('https://pay-land-backoffic.vercel.app/user/send-reset-otp', { email: forgotEmail });
+      await axios.post('/api/user/send-reset-otp', { email: forgotEmail });
       setForgotPasswordSuccess('OTP sent to your registered email!');
       setForgotPasswordStep(2);
     } catch (err: any) {
@@ -112,7 +112,7 @@ export default function LoginPage() {
     setForgotPasswordLoading(true);
 
     try {
-      await axios.post('https://pay-land-backoffic.vercel.app/user/verify-reset-otp', { email: forgotEmail, otp });
+      await axios.post('/api/user/verify-reset-otp', { email: forgotEmail, otp });
       setForgotPasswordSuccess('OTP verified successfully!');
       setForgotPasswordStep(3);
     } catch (err: any) {
@@ -133,7 +133,7 @@ export default function LoginPage() {
     setForgotPasswordLoading(true);
 
     try {
-      await axios.post('https://pay-land-backoffic.vercel.app/user/reset-password', {
+      await axios.post('/api/user/reset-password', {
         email: forgotEmail,
         otp,
         newPassword,

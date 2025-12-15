@@ -40,7 +40,7 @@ export default function Users() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://pay-land-backoffic.vercel.app/user');
+        const response = await axios.get('/api/user');
         if (Array.isArray(response.data.users)) {
           const mappedData: User[] = response.data.users.map((item: any) => ({
             id: item._id,
@@ -131,7 +131,7 @@ export default function Users() {
   const handleAddUser = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://pay-land-backoffic.vercel.app/user/signup', newUser);
+      const response = await axios.post('/api/user/signup', newUser);
       const newUserFromAPI = response.data.user;
       setUsers([...users, { id: newUserFromAPI._id, username: newUserFromAPI.username || 'N/A', email: newUserFromAPI.email || 'N/A', phone: newUserFromAPI.phone?.toString() || 'N/A', userType: newUserFromAPI.userType || 'N/A' }]);
       handleCloseModal();
@@ -160,7 +160,7 @@ export default function Users() {
     try {
       const updateData: any = { username: newUser.username, email: newUser.email, phone: newUser.phone, userType: newUser.userType };
       if (newUser.password) updateData.password = newUser.password;
-      const response = await axios.put(`https://pay-land-backoffic.vercel.app/user/${editUserId}`, updateData);
+      const response = await axios.put(`/api/user/${editUserId}`, updateData);
       const updated = response.data.user;
       setUsers(users.map((u) => u.id === editUserId ? { id: editUserId, username: updated.username || newUser.username || 'N/A', email: updated.email || newUser.email || 'N/A', phone: updated.phone?.toString() || newUser.phone || 'N/A', userType: updated.userType || newUser.userType || 'N/A' } : u));
       handleCloseModal();
@@ -169,7 +169,7 @@ export default function Users() {
 
   const handleDeleteUser = async () => {
     if (!deleteUserId) return;
-    try { await axios.delete(`https://pay-land-backoffic.vercel.app/user/${deleteUserId}`); setUsers(users.filter((u) => u.id !== deleteUserId)); handleCloseDeleteModal(); }
+    try { await axios.delete(`/api/user/${deleteUserId}`); setUsers(users.filter((u) => u.id !== deleteUserId)); handleCloseDeleteModal(); }
     catch (error) { console.error('Error deleting user:', error); }
   };
 

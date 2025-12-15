@@ -73,7 +73,7 @@ export default function Contacts() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://pay-land-backoffic.vercel.app/contact');
+        const response = await axios.get('/api/contact');
         if (Array.isArray(response.data.contacts)) {
           const mappedData: Contact[] = response.data.contacts.map((item: any) => ({
             id: item._id,
@@ -239,7 +239,7 @@ export default function Contacts() {
   const handleAddContact = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://pay-land-backoffic.vercel.app/contact', newContact);
+      const response = await axios.post('/api/contact', newContact);
       const newContactFromAPI = response.data.contact;
       const contactToAdd: Contact = {
         id: newContactFromAPI._id || `temp-${Date.now()}`,
@@ -323,7 +323,7 @@ export default function Contacts() {
     e.preventDefault();
     if (!editContactId) return;
     try {
-      const response = await axios.put(`https://pay-land-backoffic.vercel.app/contact/${editContactId}`, newContact);
+      const response = await axios.put(`/api/contact/${editContactId}`, newContact);
       const updatedContactFromAPI = response.data.contact;
       const updatedContact: Contact = {
         id: editContactId,
@@ -354,7 +354,7 @@ export default function Contacts() {
   const handleDeleteContact = async () => {
     if (!deleteContactId) return;
     try {
-      await axios.delete(`https://pay-land-backoffic.vercel.app/contact/${deleteContactId}`);
+      await axios.delete(`/api/contact/${deleteContactId}`);
       setContacts(contacts.filter((contact) => contact.id !== deleteContactId));
       handleCloseDeleteModal();
     } catch (error) {

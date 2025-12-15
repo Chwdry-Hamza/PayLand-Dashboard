@@ -34,7 +34,7 @@ export default function Profile() {
         const parsedUser = JSON.parse(userData);
         if (parsedUser._id) {
           try {
-            const response = await axios.get(`https://pay-land-backoffic.vercel.app/user/${parsedUser._id}`);
+            const response = await axios.get(`/api/user/${parsedUser._id}`);
             if (response.data.user) {
               setUser({
                 _id: response.data.user._id,
@@ -83,7 +83,7 @@ export default function Profile() {
     }
 
     try {
-      const response = await axios.put(`https://pay-land-backoffic.vercel.app/user/${user._id}`, {
+      const response = await axios.put(`/api/user/${user._id}`, {
         username: user.username,
         email: user.email,
         phone: user.phone,
