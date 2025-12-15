@@ -53,7 +53,7 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
       }}
     >
       {/* Logo Section */}
-      <div className={`flex flex-col items-center ${collapsed ? 'mb-4' : 'mb-6'}`}>
+      <Link href="/dashboard/admin" className={`flex flex-col items-center ${collapsed ? 'mb-4' : 'mb-6'} cursor-pointer hover:opacity-80 transition-opacity duration-300`}>
         <div className={`relative ${collapsed ? 'w-10 h-10' : 'w-16 h-16'} transition-all duration-300`}>
           <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl opacity-20 blur-xl"></div>
           <Image
@@ -69,7 +69,7 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
             PayLand
           </h2>
         )}
-      </div>
+      </Link>
 
       {/* User Profile Section */}
       {!collapsed && (
