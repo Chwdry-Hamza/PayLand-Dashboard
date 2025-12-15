@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import Navbar from '@/components/Navbar';
-import Sidebar from '@/components/Sidebar';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
 import './globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
