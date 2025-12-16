@@ -208,7 +208,7 @@ export default function AdminDashboard() {
             </button>
           </div>
           <div className="p-6">
-            {contacts.slice(0, 5).map((contact, index) => (
+            {[...contacts].reverse().slice(0, 4).map((contact, index) => (
               <div key={contact.id} className={`flex items-center justify-between py-4 ${index !== 0 ? 'border-t border-gray-800' : ''}`}>
                 <div className="flex items-center space-x-4">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold">
