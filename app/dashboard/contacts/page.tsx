@@ -50,6 +50,7 @@ export default function Contacts() {
   const [isViewMode, setIsViewMode] = useState(false);
   const [deleteContactId, setDeleteContactId] = useState<string | null>(null);
   const [selectedRows, setSelectedRows] = useState<string[]>([]);
+  const [userType, setUserType] = useState<string>('user');
   const [newContact, setNewContact] = useState({
     firstName: '',
     lastName: '',
@@ -72,6 +73,21 @@ export default function Contacts() {
     `${contact.firstName} ${contact.lastName}`.toLowerCase().includes(search.toLowerCase()) ||
     contact.email.toLowerCase().includes(search.toLowerCase())
   );
+
+  useEffect(() => {
+    // Get user type from storage
+    const userData = localStorage.getItem('user') || sessionStorage.getItem('user');
+    if (userData) {
+      try {
+        const parsedUser = JSON.parse(userData);
+        const type = parsedUser.userType || 'user';
+        console.log('User type from storage:', type);
+        setUserType(type);
+      } catch {
+        setUserType('user');
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -224,6 +240,11 @@ export default function Contacts() {
       ),
     },
   ];
+
+  // Filter columns based on user type - hide save/edit/delete for non-admin users
+  const filteredColumns = userType === 'admin'
+    ? columns
+    : columns.filter(col => !['save', 'edit', 'delete'].includes(col.field));
 
   const handleOpenModal = () => {
     setIsViewMode(false);
@@ -537,12 +558,14 @@ export default function Contacts() {
                 </svg>
                 Export {selectedRows.length > 0 ? `(${selectedRows.length})` : 'All'}
               </button>
-              <button
-                onClick={handleOpenModal}
-                className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 whitespace-nowrap"
-              >
-                + Add Contact
-              </button>
+              {userType === 'admin' && (
+                <button
+                  onClick={handleOpenModal}
+                  className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 whitespace-nowrap"
+                >
+                  + Add Contact
+                </button>
+              )}
             </div>
           </div>
 
@@ -587,7 +610,7 @@ export default function Contacts() {
             }}>
               <DataGrid
                 rows={filteredContacts}
-                columns={columns}
+                columns={filteredColumns}
                 initialState={{
                   pagination: { paginationModel: { pageSize: 10 } },
                 }}

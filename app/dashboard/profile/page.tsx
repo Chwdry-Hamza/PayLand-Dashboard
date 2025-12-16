@@ -17,6 +17,7 @@ export default function Profile() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -32,6 +33,9 @@ export default function Profile() {
 
       try {
         const parsedUser = JSON.parse(userData);
+        // Check if current user is admin
+        setIsAdmin(parsedUser.userType === 'admin');
+
         if (parsedUser._id) {
           try {
             const response = await axios.get(`/api/user/${parsedUser._id}`);
@@ -43,6 +47,8 @@ export default function Profile() {
                 phone: response.data.user.phone?.toString() || '',
                 userType: response.data.user.userType || '',
               });
+              // Update isAdmin based on API response
+              setIsAdmin(response.data.user.userType === 'admin');
             }
           } catch {
             setUser({
@@ -251,15 +257,17 @@ export default function Profile() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">Role</label>
+                  <label className="block text-sm font-medium text-gray-400 mb-2">
+                    Role {!isAdmin && <span className="text-xs text-gray-500">(Only admin can change)</span>}
+                  </label>
                   <select
                     value={user.userType}
                     onChange={(e) => setUser({ ...user, userType: e.target.value })}
-                    disabled={!isEditing}
+                    disabled={!isEditing || !isAdmin}
                     className={`w-full px-4 py-3 rounded-xl border transition-all duration-300 ${
-                      isEditing
+                      isEditing && isAdmin
                         ? 'bg-gray-800/50 border-gray-700 text-white focus:outline-none focus:border-amber-500'
-                        : 'bg-gray-800/30 border-gray-800 text-gray-400'
+                        : 'bg-gray-800/30 border-gray-800 text-gray-400 cursor-not-allowed'
                     }`}
                   >
                     <option value="">Select role</option>

@@ -31,11 +31,27 @@ export default function Users() {
   const [isViewMode, setIsViewMode] = useState(false);
   const [deleteUserId, setDeleteUserId] = useState<string | null>(null);
   const [newUser, setNewUser] = useState({ username: '', email: '', phone: '', password: '', userType: '' });
+  const [currentUserType, setCurrentUserType] = useState<string>('user');
 
   const filteredUsers = users.filter((user) =>
     user.username.toLowerCase().includes(search.toLowerCase()) ||
     user.email.toLowerCase().includes(search.toLowerCase())
   );
+
+  useEffect(() => {
+    // Get current user type from storage
+    const userData = localStorage.getItem('user') || sessionStorage.getItem('user');
+    if (userData) {
+      try {
+        const parsedUser = JSON.parse(userData);
+        const type = parsedUser.userType || 'user';
+        console.log('User type from storage:', type);
+        setCurrentUserType(type);
+      } catch {
+        setCurrentUserType('user');
+      }
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -121,6 +137,11 @@ export default function Users() {
       ),
     },
   ];
+
+  // Filter columns based on user type - hide edit/delete for non-admin users
+  const filteredColumns = currentUserType === 'admin'
+    ? columns
+    : columns.filter(col => !['edit', 'delete'].includes(col.field));
 
   const handleOpenModal = () => { setIsViewMode(false); setOpenModal(true); };
   const handleCloseModal = () => { setOpenModal(false); setEditUserId(null); setIsViewMode(false); setNewUser({ username: '', email: '', phone: '', password: '', userType: '' }); };
@@ -209,9 +230,11 @@ export default function Users() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
-              <button onClick={handleOpenModal} className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 whitespace-nowrap">
-                + Add User
-              </button>
+              {currentUserType === 'admin' && (
+                <button onClick={handleOpenModal} className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 whitespace-nowrap">
+                  + Add User
+                </button>
+              )}
             </div>
           </div>
 
@@ -227,7 +250,7 @@ export default function Users() {
               '& .MuiDataGrid-row:hover': { backgroundColor: 'rgba(245, 158, 11, 0.05)' },
               '& .MuiDataGrid-columnSeparator': { display: 'none' },
             }}>
-              <DataGrid rows={filteredUsers} columns={columns} initialState={{ pagination: { paginationModel: { pageSize: 10 } } }} pageSizeOptions={[5, 10, 25]} checkboxSelection disableRowSelectionOnClick />
+              <DataGrid rows={filteredUsers} columns={filteredColumns} initialState={{ pagination: { paginationModel: { pageSize: 10 } } }} pageSizeOptions={[5, 10, 25]} checkboxSelection disableRowSelectionOnClick />
             </Box>
           </div>
         </div>
