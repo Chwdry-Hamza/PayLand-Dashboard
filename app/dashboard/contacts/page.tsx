@@ -5,6 +5,7 @@ import { Modal, Box, TextField, MenuItem, FormControlLabel,IconButton, Checkbox 
 import { Edit, Delete, Visibility, Phone, Email } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import * as XLSX from 'xlsx';
 
 const darkTheme = createTheme({
   palette: {
@@ -48,6 +49,7 @@ export default function Contacts() {
   const [editContactId, setEditContactId] = useState<string | null>(null);
   const [isViewMode, setIsViewMode] = useState(false);
   const [deleteContactId, setDeleteContactId] = useState<string | null>(null);
+  const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [newContact, setNewContact] = useState({
     firstName: '',
     lastName: '',
@@ -125,9 +127,9 @@ export default function Contacts() {
         </div>
       ),
     },
-    { field: 'email', headerName: 'Email', width: 240 },
+    { field: 'email', headerName: 'Email', width: 180 },
     { field: 'phone', headerName: 'Phone', width: 130 },
-    { field: 'country', headerName: 'Country', width: 80 },
+    { field: 'country', headerName: 'Country', width: 70 },
     { field: 'interestedIn', headerName: 'Interested In', width: 120 },
     { field: 'website', headerName: 'Website', width: 175 },
     // {
@@ -140,7 +142,7 @@ export default function Contacts() {
     //     </span>
     //   ),
     // },
-    { field: 'companySize', headerName: 'Size', width: 75 },
+    { field: 'companySize', headerName: 'Size', width: 70 },
     { field: 'createdAt', headerName: 'Created', width: 100 },
     {
       field: 'call',
@@ -408,6 +410,54 @@ export default function Contacts() {
     }
   };
 
+  const handleExportExcel = () => {
+    // Get contacts to export (selected or all)
+    const contactsToExport = selectedRows.length > 0
+      ? contacts.filter(c => selectedRows.includes(c.id))
+      : filteredContacts;
+
+    if (contactsToExport.length === 0) {
+      alert('No contacts to export');
+      return;
+    }
+
+    // Prepare data for Excel
+    const exportData = contactsToExport.map(contact => ({
+      'First Name': contact.firstName,
+      'Last Name': contact.lastName,
+      'Email': contact.email,
+      'Phone': contact.phone,
+      'Country': contact.country,
+      'Job Title': contact.jobTitle,
+      'Website': contact.website,
+      'Business Type': contact.businessType,
+      'Company Size': contact.companySize,
+      'Country HQ': contact.countryHQ,
+      'Interested In': contact.interestedIn,
+      'Geographies Targeting': contact.geographiesTargeting,
+      'How Heard About Us': contact.hearAboutUs,
+      'Created Date': contact.createdAt,
+    }));
+
+    // Create workbook and worksheet
+    const worksheet = XLSX.utils.json_to_sheet(exportData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Contacts');
+
+    // Auto-size columns
+    const colWidths = Object.keys(exportData[0] || {}).map(key => ({
+      wch: Math.max(key.length, 15)
+    }));
+    worksheet['!cols'] = colWidths;
+
+    // Generate filename with date
+    const date = new Date().toISOString().split('T')[0];
+    const filename = `PayLand_Contacts_${date}.xlsx`;
+
+    // Download file
+    XLSX.writeFile(workbook, filename);
+  };
+
   const businessTypes = ['E-commerce', 'SaaS', 'Fintech', 'Healthcare', 'Education', 'Other'];
   const companySizes = ['1-10', '11-50', '51-200', '201-500', '500+'];
   const interestedInOptions = ['Payment Processing', 'Fraud Prevention', 'Analytics', 'API Integration', 'Other'];
@@ -479,6 +529,15 @@ export default function Contacts() {
                 </svg>
               </div>
               <button
+                onClick={handleExportExcel}
+                className="px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 whitespace-nowrap flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Export {selectedRows.length > 0 ? `(${selectedRows.length})` : 'All'}
+              </button>
+              <button
                 onClick={handleOpenModal}
                 className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 whitespace-nowrap"
               >
@@ -535,6 +594,10 @@ export default function Contacts() {
                 pageSizeOptions={[5, 10, 25]}
                 checkboxSelection
                 disableRowSelectionOnClick
+                onRowSelectionModelChange={(selection) => {
+                  const ids = selection.type === 'include' ? selection.ids : [];
+                  setSelectedRows(Array.from(ids).map(id => String(id)));
+                }}
               />
             </Box>
           </div>
