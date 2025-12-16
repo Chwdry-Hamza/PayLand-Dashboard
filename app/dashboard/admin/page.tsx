@@ -90,7 +90,7 @@ export default function AdminDashboard() {
       {/* Header Section */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">
-          Welcome back! <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Admin</span>
+          Welcome back! <span className="bg-gradient-to-r from-[#ff3d00] to-[#fe7956] bg-clip-text text-transparent">Admin</span>
         </h1>
         <p className="text-gray-400">Here's what's happening with your platform today.</p>
       </div>
@@ -98,9 +98,9 @@ export default function AdminDashboard() {
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {/* Total Contacts Card */}
-        <div className="bg-gradient-to-br from-[#1e1e32] to-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-amber-500/30 transition-all duration-300 group">
+        <div className="bg-gradient-to-br from-[#1e1e32] to-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#ff3d00]/30 transition-all duration-300 group">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition-all">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center shadow-lg shadow-[#ff3d00]/20 group-hover:shadow-[#ff3d00]/40 transition-all">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
           <p className="text-3xl font-bold text-white">{contacts.length}</p>
           <button
             onClick={() => setIsContactModalOpen(true)}
-            className="mt-4 text-amber-400 text-sm font-medium hover:text-amber-300 transition-colors flex items-center"
+            className="mt-4 text-[#fe7956] text-sm font-medium hover:text-[#fe7956] transition-colors flex items-center"
           >
             View all
             <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,9 +126,9 @@ export default function AdminDashboard() {
         </div>
 
         {/* Total Users Card */}
-        <div className="bg-gradient-to-br from-[#1e1e32] to-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-purple-500/30 transition-all duration-300 group">
+        <div className="bg-gradient-to-br from-[#1e1e32] to-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#ff3d00]/30 transition-all duration-300 group">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center shadow-lg shadow-[#ff3d00]/20 group-hover:shadow-[#ff3d00]/40 transition-all">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
@@ -144,7 +144,7 @@ export default function AdminDashboard() {
           <p className="text-3xl font-bold text-white">{users.length}</p>
           <button
             onClick={() => setIsUserModalOpen(true)}
-            className="mt-4 text-purple-400 text-sm font-medium hover:text-purple-300 transition-colors flex items-center"
+            className="mt-4 text-[#fe7956] text-sm font-medium hover:text-[#fe7956] transition-colors flex items-center"
           >
             View all
             <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,9 +154,9 @@ export default function AdminDashboard() {
         </div>
 
         {/* Active Sessions Card */}
-        <div className="bg-gradient-to-br from-[#1e1e32] to-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-cyan-500/30 transition-all duration-300 group">
+        <div className="bg-gradient-to-br from-[#1e1e32] to-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#ff3d00]/30 transition-all duration-300 group">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center shadow-lg shadow-[#ff3d00]/20 group-hover:shadow-[#ff3d00]/40 transition-all">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
@@ -170,7 +170,7 @@ export default function AdminDashboard() {
           </div>
           <h3 className="text-gray-400 text-sm font-medium mb-1">Active Sessions</h3>
           <p className="text-3xl font-bold text-white">24</p>
-          <p className="mt-4 text-cyan-400 text-sm font-medium">Currently online</p>
+          <p className="mt-4 text-[#fe7956] text-sm font-medium">Currently online</p>
         </div>
 
         {/* Revenue Card */}
@@ -202,7 +202,7 @@ export default function AdminDashboard() {
             <h2 className="text-xl font-bold text-white">Recent Contacts</h2>
             <button
               onClick={() => setIsContactModalOpen(true)}
-              className="text-amber-400 text-sm font-medium hover:text-amber-300 transition-colors"
+              className="text-[#fe7956] text-sm font-medium hover:text-[#fe7956] transition-colors"
             >
               View All
             </button>
@@ -211,7 +211,7 @@ export default function AdminDashboard() {
             {[...contacts].reverse().slice(0, 4).map((contact, index) => (
               <div key={contact.id} className={`flex items-center justify-between py-4 ${index !== 0 ? 'border-t border-gray-800' : ''}`}>
                 <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white font-bold">
                     {contact.firstName.charAt(0)}
                   </div>
                   <div>
@@ -219,7 +219,7 @@ export default function AdminDashboard() {
                     <p className="text-gray-400 text-sm">{contact.email}</p>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full text-xs font-medium bg-amber-500/20 text-amber-400">
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#ff3d00]/20 text-[#fe7956]">
                   {contact.businessType}
                 </span>
               </div>
@@ -235,36 +235,36 @@ export default function AdminDashboard() {
           <h2 className="text-xl font-bold text-white mb-6">Quick Actions</h2>
           <div className="space-y-4">
             <a href="/dashboard/contacts" className="flex items-center p-4 rounded-xl bg-gray-800/50 hover:bg-gray-800 transition-all group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center mr-4">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center mr-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
               </div>
               <div>
-                <p className="text-white font-medium group-hover:text-amber-400 transition-colors">Add Contact</p>
+                <p className="text-white font-medium group-hover:text-[#fe7956] transition-colors">Add Contact</p>
                 <p className="text-gray-400 text-sm">Create a new contact</p>
               </div>
             </a>
             <a href="/dashboard/users" className="flex items-center p-4 rounded-xl bg-gray-800/50 hover:bg-gray-800 transition-all group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center mr-4">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center mr-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                 </svg>
               </div>
               <div>
-                <p className="text-white font-medium group-hover:text-purple-400 transition-colors">Add User</p>
+                <p className="text-white font-medium group-hover:text-[#fe7956] transition-colors">Add User</p>
                 <p className="text-gray-400 text-sm">Create a new user</p>
               </div>
             </a>
             <a href="/dashboard/profile" className="flex items-center p-4 rounded-xl bg-gray-800/50 hover:bg-gray-800 transition-all group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center mr-4">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center mr-4">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
               <div>
-                <p className="text-white font-medium group-hover:text-cyan-400 transition-colors">Settings</p>
+                <p className="text-white font-medium group-hover:text-[#fe7956] transition-colors">Settings</p>
                 <p className="text-gray-400 text-sm">Manage your profile</p>
               </div>
             </a>
@@ -276,7 +276,7 @@ export default function AdminDashboard() {
       {isContactModalOpen && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-[#1e1e32] rounded-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-hidden shadow-2xl border border-gray-700">
-            <div className="p-6 border-b border-gray-700 flex justify-between items-center bg-gradient-to-r from-amber-500/10 to-orange-500/10">
+            <div className="p-6 border-b border-gray-700 flex justify-between items-center bg-gradient-to-r from-[#ff3d00]/10 to-[#fe7956]/10">
               <h2 className="text-2xl font-bold text-white">Contact List</h2>
               <button
                 onClick={() => setIsContactModalOpen(false)}
@@ -304,7 +304,7 @@ export default function AdminDashboard() {
                         <tr key={contact.id} className={index !== 0 ? 'border-t border-gray-800' : ''}>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center">
-                              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white text-sm font-bold mr-3">
+                              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white text-sm font-bold mr-3">
                                 {contact.firstName.charAt(0)}
                               </div>
                               <span className="text-white">{contact.firstName} {contact.lastName}</span>
@@ -313,7 +313,7 @@ export default function AdminDashboard() {
                           <td className="px-6 py-4 whitespace-nowrap text-gray-400">{contact.email}</td>
                           <td className="px-6 py-4 whitespace-nowrap text-gray-400">{contact.phone}</td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="px-3 py-1 rounded-full text-xs font-medium bg-amber-500/20 text-amber-400">
+                            <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#ff3d00]/20 text-[#fe7956]">
                               {contact.businessType}
                             </span>
                           </td>
@@ -329,7 +329,7 @@ export default function AdminDashboard() {
             <div className="p-6 border-t border-gray-700 flex justify-end">
               <button
                 onClick={() => setIsContactModalOpen(false)}
-                className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300"
+                className="px-6 py-2.5 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300"
               >
                 Close
               </button>
@@ -342,7 +342,7 @@ export default function AdminDashboard() {
       {isUserModalOpen && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-[#1e1e32] rounded-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-hidden shadow-2xl border border-gray-700">
-            <div className="p-6 border-b border-gray-700 flex justify-between items-center bg-gradient-to-r from-purple-500/10 to-pink-500/10">
+            <div className="p-6 border-b border-gray-700 flex justify-between items-center bg-gradient-to-r from-[#ff3d00]/10 to-[#fe7956]/10">
               <h2 className="text-2xl font-bold text-white">User List</h2>
               <button
                 onClick={() => setIsUserModalOpen(false)}
@@ -369,7 +369,7 @@ export default function AdminDashboard() {
                         <tr key={user.id} className={index !== 0 ? 'border-t border-gray-800' : ''}>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <div className="flex items-center">
-                              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center text-white text-sm font-bold mr-3">
+                              <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white text-sm font-bold mr-3">
                                 {user.username.charAt(0).toUpperCase()}
                               </div>
                               <span className="text-white">{user.username}</span>
@@ -377,7 +377,7 @@ export default function AdminDashboard() {
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-gray-400">{user.email}</td>
                           <td className="px-6 py-4 whitespace-nowrap">
-                            <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-500/20 text-purple-400 capitalize">
+                            <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#ff3d00]/20 text-[#fe7956] capitalize">
                               {user.userType}
                             </span>
                           </td>
@@ -393,7 +393,7 @@ export default function AdminDashboard() {
             <div className="p-6 border-t border-gray-700 flex justify-end">
               <button
                 onClick={() => setIsUserModalOpen(false)}
-                className="px-6 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
+                className="px-6 py-2.5 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300"
               >
                 Close
               </button>

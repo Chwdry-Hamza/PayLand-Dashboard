@@ -165,19 +165,19 @@ export default function LoginPage() {
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Large animated gradient orbs with enhanced glow */}
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-amber-500/30 to-orange-500/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-orange-500/25 to-amber-600/15 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-gradient-to-r from-amber-400/15 to-orange-400/15 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#ff3d00]/30 to-[#fe7956]/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-[#fe7956]/25 to-[#ff3d00]/15 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-gradient-to-r from-[#ff3d00]/15 to-[#fe7956]/15 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse" style={{ animationDelay: '3s' }}></div>
 
         {/* Floating orbs with varying sizes */}
-        <div className="absolute top-20 right-1/4 w-40 h-40 bg-amber-500/20 rounded-full blur-2xl animate-bounce" style={{ animationDuration: '3s', animationDelay: '0.5s' }}></div>
-        <div className="absolute bottom-32 left-1/4 w-32 h-32 bg-orange-500/25 rounded-full blur-2xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '1.5s' }}></div>
-        <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-amber-400/15 rounded-full blur-xl animate-bounce" style={{ animationDuration: '5s', animationDelay: '2.5s' }}></div>
+        <div className="absolute top-20 right-1/4 w-40 h-40 bg-[#ff3d00]/20 rounded-full blur-2xl animate-bounce" style={{ animationDuration: '3s', animationDelay: '0.5s' }}></div>
+        <div className="absolute bottom-32 left-1/4 w-32 h-32 bg-[#fe7956]/25 rounded-full blur-2xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '1.5s' }}></div>
+        <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-[#ff3d00]/15 rounded-full blur-xl animate-bounce" style={{ animationDuration: '5s', animationDelay: '2.5s' }}></div>
 
         {/* Floating particles */}
-        <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-amber-400/40 rounded-full animate-ping" style={{ animationDuration: '2s' }}></div>
-        <div className="absolute top-2/3 right-1/5 w-2 h-2 bg-orange-400/40 rounded-full animate-ping" style={{ animationDuration: '3s', animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 left-2/3 w-2 h-2 bg-amber-300/40 rounded-full animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}></div>
+        <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-[#ff3d00]/40 rounded-full animate-ping" style={{ animationDuration: '2s' }}></div>
+        <div className="absolute top-2/3 right-1/5 w-2 h-2 bg-[#fe7956]/40 rounded-full animate-ping" style={{ animationDuration: '3s', animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 left-2/3 w-2 h-2 bg-[#ff3d00]/40 rounded-full animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }}></div>
 
         {/* Enhanced grid pattern with shimmer effect */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(251,191,36,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(251,191,36,0.05)_1px,transparent_1px)] bg-[size:80px_80px] opacity-30"></div>
@@ -194,14 +194,14 @@ export default function LoginPage() {
       <div className="relative w-full max-w-md">
         {/* Logo with glow effect */}
         <div className="text-center mb-8">
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(251,191,36,0.3)] animate-pulse" style={{ animationDuration: '4s' }}>
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-[#ff3d00] via-[#fe7956] to-[#ff3d00] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,61,0,0.3)] animate-pulse" style={{ animationDuration: '4s' }}>
             PayLand
           </h1>
           <p className="text-gray-400 mt-3 text-sm">Welcome back! Sign in to continue</p>
         </div>
 
         {/* Login Card with glass morphism */}
-        <div className="relative bg-gradient-to-br from-[#1e1e32]/90 via-[#1a1a2e]/80 to-[#1a1a2e]/90 backdrop-blur-xl rounded-2xl border border-amber-500/20 p-8 shadow-[0_8px_32px_0_rgba(251,191,36,0.1)] before:absolute before:inset-0 before:rounded-2xl before:p-[1px] before:bg-gradient-to-br before:from-amber-500/30 before:to-orange-500/10 before:-z-10">
+        <div className="relative bg-gradient-to-br from-[#1e1e32]/90 via-[#1a1a2e]/80 to-[#1a1a2e]/90 backdrop-blur-xl rounded-2xl border border-[#ff3d00]/20 p-8 shadow-[0_8px_32px_0_rgba(255,61,0,0.1)] before:absolute before:inset-0 before:rounded-2xl before:p-[1px] before:bg-gradient-to-br before:from-[#ff3d00]/30 before:to-[#fe7956]/10 before:-z-10">
           <h2 className="text-2xl font-bold text-white mb-6">Sign In</h2>
 
           {error && (
@@ -223,7 +223,7 @@ export default function LoginPage() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   autoComplete="username"
-                  className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all duration-300"
+                  className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d00] focus:ring-1 focus:ring-[#ff3d00]/50 transition-all duration-300"
                   placeholder="Enter your username"
                   required
                 />
@@ -242,7 +242,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   autoComplete="current-password"
-                  className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all duration-300"
+                  className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d00] focus:ring-1 focus:ring-[#ff3d00]/50 transition-all duration-300"
                   placeholder="Enter your password"
                   required
                 />
@@ -258,14 +258,14 @@ export default function LoginPage() {
                   type="checkbox"
                   checked={rememberMe}
                   onChange={() => setRememberMe(!rememberMe)}
-                  className="w-4 h-4 rounded border-gray-600 bg-gray-800 text-amber-500 focus:ring-amber-500/50 focus:ring-offset-0"
+                  className="w-4 h-4 rounded border-gray-600 bg-gray-800 text-[#ff3d00] focus:ring-[#ff3d00]/50 focus:ring-offset-0"
                 />
                 <span className="ml-2 text-sm text-gray-400">Remember me</span>
               </label>
               <button
                 type="button"
                 onClick={() => setShowForgotPasswordModal(true)}
-                className="text-sm text-amber-400 hover:text-amber-300 transition-colors"
+                className="text-sm text-[#fe7956] hover:text-[#ff3d00] transition-colors"
               >
                 Forgot password?
               </button>
@@ -274,7 +274,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+              className="w-full py-3 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {loading ? (
                 <>
@@ -293,7 +293,7 @@ export default function LoginPage() {
           <div className="mt-6 text-center">
             <p className="text-gray-400 text-sm">
               Don't have an account?{' '}
-              <Link href="/auth/signup" className="text-amber-400 hover:text-amber-300 font-medium transition-colors">
+              <Link href="/auth/signup" className="text-[#fe7956] hover:text-[#ff3d00] font-medium transition-colors">
                 Sign up
               </Link>
             </p>
@@ -335,7 +335,7 @@ export default function LoginPage() {
         {/* Forgot Password Modal */}
         {showForgotPasswordModal && (
           <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 z-50 animate-fade-in">
-            <div className="relative bg-gradient-to-br from-[#1e1e32]/95 via-[#1a1a2e]/90 to-[#1a1a2e]/95 backdrop-blur-xl rounded-2xl border border-amber-500/30 p-8 shadow-[0_8px_32px_0_rgba(251,191,36,0.2)] max-w-md w-full before:absolute before:inset-0 before:rounded-2xl before:p-[1px] before:bg-gradient-to-br before:from-amber-500/40 before:to-orange-500/20 before:-z-10 animate-scale-in">
+            <div className="relative bg-gradient-to-br from-[#1e1e32]/95 via-[#1a1a2e]/90 to-[#1a1a2e]/95 backdrop-blur-xl rounded-2xl border border-[#ff3d00]/30 p-8 shadow-[0_8px_32px_0_rgba(255,61,0,0.2)] max-w-md w-full before:absolute before:inset-0 before:rounded-2xl before:p-[1px] before:bg-gradient-to-br before:from-[#ff3d00]/40 before:to-[#fe7956]/20 before:-z-10 animate-scale-in">
               {/* Close Button */}
               <button
                 onClick={() => {
@@ -385,7 +385,7 @@ export default function LoginPage() {
                         type="email"
                         value={forgotEmail}
                         onChange={(e) => setForgotEmail(e.target.value)}
-                        className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all duration-300"
+                        className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d00] focus:ring-1 focus:ring-[#ff3d00]/50 transition-all duration-300"
                         placeholder="Enter your email"
                         required
                       />
@@ -398,7 +398,7 @@ export default function LoginPage() {
                   <button
                     onClick={handleSendOTP}
                     disabled={forgotPasswordLoading}
-                    className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full py-3 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {forgotPasswordLoading ? (
                       <>
@@ -425,7 +425,7 @@ export default function LoginPage() {
                         type="text"
                         value={otp}
                         onChange={(e) => setOtp(e.target.value)}
-                        className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all duration-300"
+                        className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d00] focus:ring-1 focus:ring-[#ff3d00]/50 transition-all duration-300"
                         placeholder="Enter 6-digit OTP"
                         maxLength={6}
                         required
@@ -439,7 +439,7 @@ export default function LoginPage() {
                   <button
                     onClick={handleVerifyOTP}
                     disabled={forgotPasswordLoading}
-                    className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full py-3 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {forgotPasswordLoading ? (
                       <>
@@ -456,7 +456,7 @@ export default function LoginPage() {
 
                   <button
                     onClick={() => setForgotPasswordStep(1)}
-                    className="w-full text-sm text-gray-400 hover:text-amber-400 transition-colors"
+                    className="w-full text-sm text-gray-400 hover:text-[#fe7956] transition-colors"
                   >
                     Back to email
                   </button>
@@ -473,7 +473,7 @@ export default function LoginPage() {
                         type="password"
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
-                        className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all duration-300"
+                        className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d00] focus:ring-1 focus:ring-[#ff3d00]/50 transition-all duration-300"
                         placeholder="Enter new password"
                         required
                       />
@@ -490,7 +490,7 @@ export default function LoginPage() {
                         type="password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all duration-300"
+                        className="w-full px-4 py-3 pl-11 rounded-xl bg-gray-800/50 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d00] focus:ring-1 focus:ring-[#ff3d00]/50 transition-all duration-300"
                         placeholder="Confirm new password"
                         required
                       />
@@ -503,7 +503,7 @@ export default function LoginPage() {
                   <button
                     onClick={handleResetPassword}
                     disabled={forgotPasswordLoading}
-                    className="w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full py-3 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {forgotPasswordLoading ? (
                       <>

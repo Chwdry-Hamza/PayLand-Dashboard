@@ -11,7 +11,7 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#f59e0b',
+      main: '#ff3d00',
     },
     background: {
       default: '#0f0f1a',
@@ -131,12 +131,12 @@ export default function Contacts() {
       width: 190,
       renderCell: (params: GridRenderCellParams) => (
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white text-sm font-bold">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white text-sm font-bold">
             {params.row.firstName.charAt(0)}
           </div>
           <button
             onClick={() => handleViewContact(params.row.id)}
-            className="text-amber-400 hover:text-amber-300 font-medium transition-colors"
+            className="text-[#fe7956] hover:text-[#ff3d00] font-medium transition-colors"
           >
             {`${params.row.firstName} ${params.row.lastName}`}
           </button>
@@ -200,7 +200,7 @@ export default function Contacts() {
           className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
             params.row.saved
               ? 'bg-green-500/20 text-green-400 hover:bg-green-500/30'
-              : 'bg-gray-700/50 text-gray-400 hover:bg-amber-500/20 hover:text-amber-400'
+              : 'bg-gray-700/50 text-gray-400 hover:bg-[#ff3d00]/20 hover:text-[#fe7956]'
           }`}
         >
           {params.row.saved ? 'Saved' : 'Save'}
@@ -504,11 +504,11 @@ export default function Contacts() {
       backgroundColor: 'rgba(255, 255, 255, 0.05)',
       borderRadius: '12px',
       '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.1)' },
-      '&:hover fieldset': { borderColor: '#f59e0b' },
-      '&.Mui-focused fieldset': { borderColor: '#f59e0b' },
+      '&:hover fieldset': { borderColor: '#ff3d00' },
+      '&.Mui-focused fieldset': { borderColor: '#ff3d00' },
     },
     '& .MuiInputLabel-root': { color: '#9ca3af' },
-    '& .MuiInputLabel-root.Mui-focused': { color: '#f59e0b' },
+    '& .MuiInputLabel-root.Mui-focused': { color: '#ff3d00' },
     '& .MuiOutlinedInput-input': { color: '#fff' },
   };
 
@@ -526,7 +526,7 @@ export default function Contacts() {
           {/* Card Header */}
           <div className="p-6 border-b border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
@@ -543,7 +543,7 @@ export default function Contacts() {
                   placeholder="Search contacts..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full py-2.5 px-4 pl-10 rounded-xl bg-gray-800/50 border border-gray-700 focus:outline-none focus:border-amber-500 text-gray-200 placeholder-gray-500"
+                  className="w-full py-2.5 px-4 pl-10 rounded-xl bg-gray-800/50 border border-gray-700 focus:outline-none focus:border-[#ff3d00] text-gray-200 placeholder-gray-500"
                 />
                 <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -551,7 +551,7 @@ export default function Contacts() {
               </div>
               <button
                 onClick={handleExportExcel}
-                className="px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 whitespace-nowrap flex items-center gap-2"
+                className="px-4 py-2.5 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] hover:shadow-lg hover:shadow-[#ff3d00]/30 text-white font-medium rounded-xl transition-all duration-300 whitespace-nowrap flex items-center gap-2"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -561,7 +561,7 @@ export default function Contacts() {
               {userType === 'admin' && (
                 <button
                   onClick={handleOpenModal}
-                  className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 whitespace-nowrap"
+                  className="px-4 py-2.5 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300 whitespace-nowrap"
                 >
                   + Add Contact
                 </button>
@@ -599,10 +599,10 @@ export default function Contacts() {
                 color: '#6b7280',
               },
               '& .MuiCheckbox-root.Mui-checked': {
-                color: '#f59e0b',
+                color: '#ff3d00',
               },
               '& .MuiDataGrid-row:hover': {
-                backgroundColor: 'rgba(245, 158, 11, 0.05)',
+                backgroundColor: 'rgba(255, 61, 0, 0.05)',
               },
               '& .MuiDataGrid-columnSeparator': {
                 display: 'none',
@@ -707,13 +707,13 @@ export default function Contacts() {
                 <>
                   <Box sx={{ gridColumn: { md: '1 / 3' } }}>
                     <FormControlLabel
-                      control={<Checkbox checked={newContact.consent} onChange={handleCheckboxChange} name="consent" sx={{ color: '#6b7280', '&.Mui-checked': { color: '#f59e0b' } }} />}
+                      control={<Checkbox checked={newContact.consent} onChange={handleCheckboxChange} name="consent" sx={{ color: '#6b7280', '&.Mui-checked': { color: '#ff3d00' } }} />}
                       label={<span className="text-gray-300">I consent to being contacted</span>}
                     />
                   </Box>
                   <Box sx={{ gridColumn: { md: '1 / 3' } }}>
                     <FormControlLabel
-                      control={<Checkbox checked={newContact.newsletter} onChange={handleCheckboxChange} name="newsletter" sx={{ color: '#6b7280', '&.Mui-checked': { color: '#f59e0b' } }} />}
+                      control={<Checkbox checked={newContact.newsletter} onChange={handleCheckboxChange} name="newsletter" sx={{ color: '#6b7280', '&.Mui-checked': { color: '#ff3d00' } }} />}
                       label={<span className="text-gray-300">Subscribe to newsletter</span>}
                     />
                   </Box>
@@ -731,7 +731,7 @@ export default function Contacts() {
                 {!isViewMode && (
                   <button
                     type="submit"
-                    className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300"
+                    className="px-6 py-2.5 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300"
                   >
                     {editContactId ? 'Update Contact' : 'Add Contact'}
                   </button>

@@ -29,8 +29,8 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
   const linkClasses = (path: string) => `
     flex items-center p-3 rounded-xl transition-all duration-300 group
     ${isActive(path)
-      ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
-      : 'text-gray-400 hover:bg-gray-800/50 hover:text-amber-400'
+      ? 'bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white shadow-lg shadow-[#ff3d00]/30'
+      : 'text-gray-400 hover:bg-gray-800/50 hover:text-[#fe7956]'
     }
   `;
 
@@ -55,7 +55,7 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
       {/* Logo Section */}
       <Link href="/dashboard/admin" className={`flex flex-col items-center ${collapsed ? 'mb-4' : 'mb-6'} cursor-pointer hover:opacity-80 transition-opacity duration-300`}>
         <div className={`relative ${collapsed ? 'w-10 h-10' : 'w-16 h-16'} transition-all duration-300`}>
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl opacity-20 blur-xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] rounded-xl opacity-20 blur-xl"></div>
           <Image
             src="/PaylandLogo1.png"
             alt="Logo"
@@ -65,7 +65,7 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
           />
         </div>
         {!collapsed && (
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mt-3">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-[#ff3d00] to-[#fe7956] bg-clip-text text-transparent mt-3">
             PayLand
           </h2>
         )}
@@ -76,14 +76,14 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
         <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-4 mb-6 border border-gray-700/50">
           <div className="flex items-center space-x-3">
             <div className="relative">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white font-bold text-lg shadow-lg">
                 {username.charAt(0).toUpperCase()}
               </div>
               <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-gray-800"></div>
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-white font-semibold truncate">{username}</p>
-              <p className="text-amber-400 text-sm capitalize">{userType}</p>
+              <p className="text-[#fe7956] text-sm capitalize">{userType}</p>
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
       {collapsed && (
         <div className="flex justify-center mb-6">
           <div className="relative">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold shadow-lg">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white font-bold shadow-lg">
               {username.charAt(0).toUpperCase()}
             </div>
             <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-gray-800"></div>
@@ -129,14 +129,14 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
 
       {!collapsed && (
         <div className="mt-6 pt-6 border-t border-gray-700/50">
-          <div className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-xl p-4 border border-amber-500/20">
-            <p className="text-amber-400 font-semibold text-sm">PayLand</p>
+          <div className="bg-gradient-to-r from-[#ff3d00]/10 to-[#fe7956]/10 rounded-xl p-4 border border-[#ff3d00]/20">
+            <p className="text-[#fe7956] font-semibold text-sm">PayLand</p>
             <p className="text-gray-400 text-xs mt-1">Open Over Website</p>
             <a
               href="https://www.payland.info/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 flex items-center justify-center"
+              className="mt-3 w-full bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white py-2 rounded-lg text-sm font-medium hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300 flex items-center justify-center"
             >
               Go
             </a>

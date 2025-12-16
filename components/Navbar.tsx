@@ -275,7 +275,7 @@ export default function Navbar({
         {/* Left: Toggler and Search */}
         <div className="flex items-center space-x-4 flex-1">
           <button
-            className="md:hidden text-gray-400 p-2 rounded-xl hover:bg-gray-800 hover:text-amber-400 transition-all duration-300"
+            className="md:hidden text-gray-400 p-2 rounded-xl hover:bg-gray-800 hover:text-[#fe7956] transition-all duration-300"
             onClick={onMobileToggleSidebar}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -283,7 +283,7 @@ export default function Navbar({
             </svg>
           </button>
           <button
-            className="hidden md:block text-gray-400 p-2 rounded-xl hover:bg-gray-800 hover:text-amber-400 transition-all duration-300"
+            className="hidden md:block text-gray-400 p-2 rounded-xl hover:bg-gray-800 hover:text-[#fe7956] transition-all duration-300"
             onClick={onDesktopToggleSidebar}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -293,7 +293,7 @@ export default function Navbar({
 
           {/* Mobile Logo */}
           <div className="flex-1 flex justify-center items-center md:hidden">
-            <h1 className="text-xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
+            <h1 className="text-xl font-bold bg-gradient-to-r from-[#ff3d00] to-[#fe7956] bg-clip-text text-transparent">
               PayLand
             </h1>
           </div>
@@ -308,7 +308,7 @@ export default function Navbar({
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => searchQuery.trim() && (filteredContacts.length > 0 || filteredUsers.length > 0) && setIsSearchOpen(true)}
                   placeholder="Search clients & users..."
-                  className="w-full py-2.5 px-4 pl-11 pr-12 rounded-xl bg-gray-800/50 border border-gray-700 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all duration-300 placeholder-gray-500 text-gray-200"
+                  className="w-full py-2.5 px-4 pl-11 pr-12 rounded-xl bg-gray-800/50 border border-gray-700 focus:outline-none focus:border-[#ff3d00] focus:ring-1 focus:ring-[#ff3d00]/50 transition-all duration-300 placeholder-gray-500 text-gray-200"
                 />
                 <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -334,7 +334,7 @@ export default function Navbar({
                 {filteredContacts.length > 0 && (
                   <div>
                     <div className="px-4 py-2 bg-gray-800/50 border-b border-gray-700/50">
-                      <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">Clients</span>
+                      <span className="text-xs font-semibold text-[#fe7956] uppercase tracking-wider">Clients</span>
                     </div>
                     {filteredContacts.map((contact) => (
                       <Link
@@ -360,7 +360,7 @@ export default function Navbar({
                 {filteredUsers.length > 0 && (
                   <div>
                     <div className="px-4 py-2 bg-gray-800/50 border-b border-gray-700/50">
-                      <span className="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Users</span>
+                      <span className="text-xs font-semibold text-[#fe7956] uppercase tracking-wider">Users</span>
                     </div>
                     {filteredUsers.map((user) => (
                       <Link
@@ -369,7 +369,7 @@ export default function Navbar({
                         onClick={() => { setIsSearchOpen(false); setSearchQuery(''); }}
                         className="flex items-center px-4 py-3 hover:bg-gray-800/50 transition-colors border-b border-gray-700/30"
                       >
-                        <div className="w-9 h-9 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center text-white font-bold text-sm mr-3">
+                        <div className="w-9 h-9 rounded-lg bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white font-bold text-sm mr-3">
                           {user.username.charAt(0).toUpperCase()}
                         </div>
                         <div className="flex-1 min-w-0">
@@ -402,15 +402,15 @@ export default function Navbar({
           <div className="relative" ref={notificationDropdownRef}>
             <button
               onClick={toggleNotifications}
-              className="relative p-2.5 rounded-xl bg-gray-800/50 text-gray-400 hover:text-amber-400 hover:bg-gray-800 transition-all duration-300"
+              className="relative p-2.5 rounded-xl bg-gray-800/50 text-gray-400 hover:text-[#fe7956] hover:bg-gray-800 transition-all duration-300"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
               </svg>
               {notificationCount > 0 && (
                 <>
-                  <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-500 rounded-full"></span>
-                  <span className="absolute -top-1 -right-1 bg-amber-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#ff3d00] rounded-full"></span>
+                  <span className="absolute -top-1 -right-1 bg-[#ff3d00] text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                     {notificationCount > 9 ? '9+' : notificationCount}
                   </span>
                 </>
@@ -430,7 +430,7 @@ export default function Navbar({
                     newContacts.map((contact) => (
                       <div key={contact._id} className="px-3 md:px-4 py-3 hover:bg-gray-800/50 transition-colors border-b border-gray-700/30">
                         <div className="flex items-center space-x-2 md:space-x-3">
-                          <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold shadow-lg flex-shrink-0 text-sm md:text-base">
+                          <div className="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white font-bold shadow-lg flex-shrink-0 text-sm md:text-base">
                             {contact.firstName.charAt(0).toUpperCase()}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -438,7 +438,7 @@ export default function Navbar({
                             <p className="text-gray-400 text-xs truncate">{contact.email}</p>
                           </div>
                           <div className="flex-shrink-0">
-                            <span className="text-xs text-amber-400">
+                            <span className="text-xs text-[#fe7956]">
                               {new Date(contact.createdAt).toLocaleTimeString('en-US', {
                                 hour: '2-digit',
                                 minute: '2-digit'
@@ -468,7 +468,7 @@ export default function Navbar({
                 onClick={toggleDropdown}
                 className="flex items-center space-x-3 p-2 rounded-xl hover:bg-gray-800 transition-all duration-300"
               >
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold shadow-lg">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white font-bold shadow-lg">
                   {username.charAt(0).toUpperCase()}
                 </div>
                 <div className="text-left hidden lg:block">
@@ -482,27 +482,27 @@ export default function Navbar({
 
               {isDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-72 bg-[#1e1e32] rounded-2xl shadow-2xl border border-gray-700/50 py-2 z-50 overflow-hidden">
-                  <div className="px-4 py-3 border-b border-gray-700/50 bg-gradient-to-r from-amber-500/10 to-orange-500/10">
+                  <div className="px-4 py-3 border-b border-gray-700/50 bg-gradient-to-r from-[#ff3d00]/10 to-[#fe7956]/10">
                     <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white font-bold text-lg shadow-lg">
                         {username.charAt(0).toUpperCase()}
                       </div>
                       <div>
                         <p className="text-white font-semibold">{username}</p>
-                        <p className="text-amber-400 text-sm">{email}</p>
+                        <p className="text-[#fe7956] text-sm">{email}</p>
                       </div>
                     </div>
                   </div>
                   <div className="py-2">
                     <Link href="/dashboard/profile">
-                      <button onClick={() => setIsDropdownOpen(false)} className="w-full flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-800 hover:text-amber-400 transition-colors">
+                      <button onClick={() => setIsDropdownOpen(false)} className="w-full flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-800 hover:text-[#fe7956] transition-colors">
                         <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                         Edit Profile
                       </button>
                     </Link>
-                    <button onClick={() => setIsDropdownOpen(false)} className="w-full flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-800 hover:text-amber-400 transition-colors">
+                    <button onClick={() => setIsDropdownOpen(false)} className="w-full flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-800 hover:text-[#fe7956] transition-colors">
                       <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -531,7 +531,7 @@ export default function Navbar({
             <div className="md:hidden relative" ref={mobileDropdownRef}>
               <button
                 onClick={toggleMobileMenu}
-                className="p-2.5 rounded-xl bg-gray-800/50 text-gray-400 hover:text-amber-400 hover:bg-gray-800 transition-all duration-300"
+                className="p-2.5 rounded-xl bg-gray-800/50 text-gray-400 hover:text-[#fe7956] hover:bg-gray-800 transition-all duration-300"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6h.01M12 12h.01M12 18h.01" />
@@ -542,25 +542,25 @@ export default function Navbar({
                 <div className="absolute right-0 top-14 w-72 bg-[#1e1e32] rounded-2xl shadow-2xl border border-gray-700/50 py-2 z-50 overflow-hidden">
                   <div className="px-4 py-3 border-b border-gray-700/50">
                     <div className="flex items-center space-x-3">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white font-bold text-lg shadow-lg">
                         {username.charAt(0).toUpperCase()}
                       </div>
                       <div>
                         <p className="text-white font-semibold">{username}</p>
-                        <p className="text-amber-400 text-sm">{email}</p>
+                        <p className="text-[#fe7956] text-sm">{email}</p>
                       </div>
                     </div>
                   </div>
                   <div className="py-2">
                     <Link href="/dashboard/profile">
-                      <button onClick={() => setIsMobileMenuOpen(false)} className="w-full flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-800 hover:text-amber-400 transition-colors">
+                      <button onClick={() => setIsMobileMenuOpen(false)} className="w-full flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-800 hover:text-[#fe7956] transition-colors">
                         <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                         Edit Profile
                       </button>
                     </Link>
-                    <button onClick={() => setIsMobileMenuOpen(false)} className="w-full flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-800 hover:text-amber-400 transition-colors">
+                    <button onClick={() => setIsMobileMenuOpen(false)} className="w-full flex items-center px-4 py-2.5 text-gray-300 hover:bg-gray-800 hover:text-[#fe7956] transition-colors">
                       <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />

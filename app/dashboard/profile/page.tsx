@@ -116,7 +116,7 @@ export default function Profile() {
   if (loading) {
     return (
       <div className="min-h-screen bg-[#0f0f1a] flex items-center justify-center">
-        <div className="w-16 h-16 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-16 h-16 border-4 border-[#ff3d00] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -134,21 +134,21 @@ export default function Profile() {
         <div className="lg:col-span-1">
           <div className="bg-gradient-to-br from-[#1e1e32] to-[#1a1a2e] rounded-2xl border border-gray-800 overflow-hidden">
             {/* Cover Image */}
-            <div className="h-32 bg-gradient-to-r from-amber-500 to-orange-500 relative">
+            <div className="h-32 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] relative">
               <div className="absolute inset-0 bg-black/20"></div>
             </div>
 
             {/* Profile Content */}
             <div className="px-6 pb-6">
               <div className="relative -mt-16 mb-4">
-                <div className="w-28 h-28 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white text-4xl font-bold shadow-xl border-4 border-[#1e1e32]">
+                <div className="w-28 h-28 rounded-2xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white text-4xl font-bold shadow-xl border-4 border-[#1e1e32]">
                   {user.username ? user.username.charAt(0).toUpperCase() : 'U'}
                 </div>
                 <div className="absolute bottom-2 right-0 w-6 h-6 bg-green-500 rounded-full border-2 border-[#1e1e32]"></div>
               </div>
 
               <h2 className="text-2xl font-bold text-white mb-1">{user.username || 'User'}</h2>
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-500/20 text-amber-400 capitalize">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[#ff3d00]/20 text-[#fe7956] capitalize">
                 {user.userType || 'Member'}
               </span>
 
@@ -181,7 +181,7 @@ export default function Profile() {
               {!isEditing && (
                 <button
                   onClick={() => setIsEditing(true)}
-                  className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300"
+                  className="px-4 py-2 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300"
                 >
                   Edit Profile
                 </button>
@@ -217,7 +217,7 @@ export default function Profile() {
                     disabled={!isEditing}
                     className={`w-full px-4 py-3 rounded-xl border transition-all duration-300 ${
                       isEditing
-                        ? 'bg-gray-800/50 border-gray-700 text-white focus:outline-none focus:border-amber-500'
+                        ? 'bg-gray-800/50 border-gray-700 text-white focus:outline-none focus:border-[#ff3d00]'
                         : 'bg-gray-800/30 border-gray-800 text-gray-400'
                     }`} 
                     placeholder="Enter username"
@@ -233,7 +233,7 @@ export default function Profile() {
                     disabled={!isEditing}
                     className={`w-full px-4 py-3 rounded-xl border transition-all duration-300 ${
                       isEditing
-                        ? 'bg-gray-800/50 border-gray-700 text-white focus:outline-none focus:border-amber-500'
+                        ? 'bg-gray-800/50 border-gray-700 text-white focus:outline-none focus:border-[#ff3d00]'
                         : 'bg-gray-800/30 border-gray-800 text-gray-400'
                     }`}
                     placeholder="Enter email"
@@ -249,7 +249,7 @@ export default function Profile() {
                     disabled={!isEditing}
                     className={`w-full px-4 py-3 rounded-xl border transition-all duration-300 ${
                       isEditing
-                        ? 'bg-gray-800/50 border-gray-700 text-white focus:outline-none focus:border-amber-500'
+                        ? 'bg-gray-800/50 border-gray-700 text-white focus:outline-none focus:border-[#ff3d00]'
                         : 'bg-gray-800/30 border-gray-800 text-gray-400'
                     }`}
                     placeholder="Enter phone number"
@@ -266,7 +266,7 @@ export default function Profile() {
                     disabled={!isEditing || !isAdmin}
                     className={`w-full px-4 py-3 rounded-xl border transition-all duration-300 ${
                       isEditing && isAdmin
-                        ? 'bg-gray-800/50 border-gray-700 text-white focus:outline-none focus:border-amber-500'
+                        ? 'bg-gray-800/50 border-gray-700 text-white focus:outline-none focus:border-[#ff3d00]'
                         : 'bg-gray-800/30 border-gray-800 text-gray-400 cursor-not-allowed'
                     }`}
                   >
@@ -289,7 +289,7 @@ export default function Profile() {
                   </button>
                   <button
                     type="submit"
-                    className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300"
+                    className="px-6 py-2.5 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300"
                   >
                     Save Changes
                   </button>
@@ -305,7 +305,7 @@ export default function Profile() {
 
             <div className="flex items-center justify-between p-4 rounded-xl bg-gray-800/30 border border-gray-700">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
@@ -315,7 +315,7 @@ export default function Profile() {
                   <p className="text-gray-400 text-sm">Last changed 30 days ago</p>
                 </div>
               </div>
-              <button className="px-4 py-2 text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+              <button className="px-4 py-2 text-[#fe7956] hover:text-[#ff3d00] font-medium transition-colors">
                 Change
               </button>
             </div>

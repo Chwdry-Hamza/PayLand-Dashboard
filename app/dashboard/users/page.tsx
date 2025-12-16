@@ -9,7 +9,7 @@ import axios from 'axios';
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
-    primary: { main: '#f59e0b' },
+    primary: { main: '#ff3d00' },
     background: { default: '#0f0f1a', paper: '#1e1e32' },
   },
 });
@@ -82,10 +82,10 @@ export default function Users() {
       width: 200,
       renderCell: (params: GridRenderCellParams) => (
         <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center text-white text-sm font-bold">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center text-white text-sm font-bold">
             {params.value.charAt(0).toUpperCase()}
           </div>
-          <button onClick={() => handleViewUser(params.row.id)} className="text-amber-400 hover:text-amber-300 font-medium transition-colors">
+          <button onClick={() => handleViewUser(params.row.id)} className="text-[#fe7956] hover:text-[#ff3d00] font-medium transition-colors">
             {params.value}
           </button>
         </div>
@@ -100,8 +100,8 @@ export default function Users() {
       renderCell: (params: GridRenderCellParams) => (
         <span className={`px-3 py-1 rounded-lg text-xs font-medium capitalize ${
           params.value === 'admin' ? 'bg-red-500/20 text-red-400' :
-          params.value === 'moderator' ? 'bg-cyan-500/20 text-cyan-400' :
-          'bg-amber-500/20 text-amber-400'
+          params.value === 'moderator' ? 'bg-[#ff3d00]/20 text-[#fe7956]' :
+          'bg-[#ff3d00]/20 text-[#fe7956]'
         }`}>
           {params.value}
         </span>
@@ -197,8 +197,8 @@ export default function Users() {
   const userTypes = ['admin', 'user', 'moderator'];
 
   const inputStyle = {
-    '& .MuiOutlinedInput-root': { backgroundColor: 'rgba(255, 255, 255, 0.05)', borderRadius: '12px', '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.1)' }, '&:hover fieldset': { borderColor: '#f59e0b' }, '&.Mui-focused fieldset': { borderColor: '#f59e0b' } },
-    '& .MuiInputLabel-root': { color: '#9ca3af' }, '& .MuiInputLabel-root.Mui-focused': { color: '#f59e0b' }, '& .MuiOutlinedInput-input': { color: '#fff' },
+    '& .MuiOutlinedInput-root': { backgroundColor: 'rgba(255, 255, 255, 0.05)', borderRadius: '12px', '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.1)' }, '&:hover fieldset': { borderColor: '#ff3d00' }, '&.Mui-focused fieldset': { borderColor: '#ff3d00' } },
+    '& .MuiInputLabel-root': { color: '#9ca3af' }, '& .MuiInputLabel-root.Mui-focused': { color: '#ff3d00' }, '& .MuiOutlinedInput-input': { color: '#fff' },
   };
 
   return (
@@ -212,7 +212,7 @@ export default function Users() {
         <div className="bg-gradient-to-br from-[#1e1e32] to-[#1a1a2e] rounded-2xl border border-gray-800 overflow-hidden">
           <div className="p-6 border-b border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#ff3d00] to-[#fe7956] flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
@@ -225,13 +225,13 @@ export default function Users() {
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <div className="relative flex-1 sm:w-64">
                 <input type="text" placeholder="Search users..." value={search} onChange={(e) => setSearch(e.target.value)}
-                  className="w-full py-2.5 px-4 pl-10 rounded-xl bg-gray-800/50 border border-gray-700 focus:outline-none focus:border-amber-500 text-gray-200 placeholder-gray-500" />
+                  className="w-full py-2.5 px-4 pl-10 rounded-xl bg-gray-800/50 border border-gray-700 focus:outline-none focus:border-[#ff3d00] text-gray-200 placeholder-gray-500" />
                 <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
               {currentUserType === 'admin' && (
-                <button onClick={handleOpenModal} className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300 whitespace-nowrap">
+                <button onClick={handleOpenModal} className="px-4 py-2.5 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300 whitespace-nowrap">
                   + Add User
                 </button>
               )}
@@ -246,8 +246,8 @@ export default function Users() {
               '& .MuiDataGrid-columnHeaders': { backgroundColor: 'rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#9ca3af', borderBottom: 'none' },
               '& .MuiDataGrid-footerContainer': { borderTop: '1px solid rgba(255, 255, 255, 0.05)', backgroundColor: 'transparent' },
               '& .MuiTablePagination-root': { color: '#9ca3af' },
-              '& .MuiCheckbox-root': { color: '#6b7280' }, '& .MuiCheckbox-root.Mui-checked': { color: '#f59e0b' },
-              '& .MuiDataGrid-row:hover': { backgroundColor: 'rgba(245, 158, 11, 0.05)' },
+              '& .MuiCheckbox-root': { color: '#6b7280' }, '& .MuiCheckbox-root.Mui-checked': { color: '#ff3d00' },
+              '& .MuiDataGrid-row:hover': { backgroundColor: 'rgba(255, 61, 0, 0.05)' },
               '& .MuiDataGrid-columnSeparator': { display: 'none' },
             }}>
               <DataGrid rows={filteredUsers} columns={filteredColumns} initialState={{ pagination: { paginationModel: { pageSize: 10 } } }} pageSizeOptions={[5, 10, 25]} checkboxSelection disableRowSelectionOnClick />
@@ -285,7 +285,7 @@ export default function Users() {
               <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 2 }}>
                 <button type="button" onClick={handleCloseModal} className="px-6 py-2.5 text-gray-400 hover:text-white transition-colors">{isViewMode ? 'Close' : 'Cancel'}</button>
                 {!isViewMode && (
-                  <button type="submit" className="px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-medium rounded-xl hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-300">
+                  <button type="submit" className="px-6 py-2.5 bg-gradient-to-r from-[#ff3d00] to-[#fe7956] text-white font-medium rounded-xl hover:shadow-lg hover:shadow-[#ff3d00]/30 transition-all duration-300">
                     {editUserId ? 'Update User' : 'Add User'}
                   </button>
                 )}
