@@ -37,6 +37,7 @@ interface Contact {
   consent: boolean;
   newsletter: boolean;
   createdAt: string;
+  saved: boolean;
 }
 
 export default function Contacts() {
@@ -93,6 +94,7 @@ export default function Contacts() {
             consent: item.consent || false,
             newsletter: item.newsletter || false,
             createdAt: item.createdAt ? new Date(item.createdAt).toISOString().split('T')[0] : 'N/A',
+            saved: item.saved || false,
           }));
           setContacts(mappedData);
         }
@@ -171,6 +173,23 @@ export default function Contacts() {
       ),
     },
     {
+      field: 'save',
+      headerName: 'Save',
+      width: 80,
+      renderCell: (params: GridRenderCellParams) => (
+        <button
+          onClick={() => handleToggleSave(params.row.id)}
+          className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+            params.row.saved
+              ? 'bg-green-500/20 text-green-400 hover:bg-green-500/30'
+              : 'bg-gray-700/50 text-gray-400 hover:bg-amber-500/20 hover:text-amber-400'
+          }`}
+        >
+          {params.row.saved ? 'Saved' : 'Save'}
+        </button>
+      ),
+    },
+    {
       field: 'edit',
       headerName: 'Edit',
       width: 60,
@@ -179,6 +198,8 @@ export default function Contacts() {
           color="primary"
           onClick={() => handleEditContact(params.row.id)}
           aria-label="edit contact"
+          disabled={params.row.saved}
+          sx={{ opacity: params.row.saved ? 0.3 : 1 }}
         >
           <Edit />
         </IconButton>
@@ -193,6 +214,8 @@ export default function Contacts() {
           color="error"
           onClick={() => handleOpenDeleteModal(params.row.id)}
           aria-label="delete contact"
+          disabled={params.row.saved}
+          sx={{ opacity: params.row.saved ? 0.3 : 1 }}
         >
           <Delete />
         </IconButton>
@@ -259,6 +282,7 @@ export default function Contacts() {
         consent: newContactFromAPI.consent || false,
         newsletter: newContactFromAPI.newsletter || false,
         createdAt: newContactFromAPI.createdAt ? new Date(newContactFromAPI.createdAt).toISOString().split('T')[0] : 'N/A',
+        saved: false,
       };
       setContacts([...contacts, contactToAdd]);
       handleCloseModal();
@@ -325,6 +349,7 @@ export default function Contacts() {
     try {
       const response = await axios.put(`/api/contact/${editContactId}`, newContact);
       const updatedContactFromAPI = response.data.contact;
+      const existingContact = contacts.find(c => c.id === editContactId);
       const updatedContact: Contact = {
         id: editContactId,
         firstName: updatedContactFromAPI.firstName || newContact.firstName || 'N/A',
@@ -343,6 +368,7 @@ export default function Contacts() {
         consent: updatedContactFromAPI.consent ?? newContact.consent,
         newsletter: updatedContactFromAPI.newsletter ?? newContact.newsletter,
         createdAt: updatedContactFromAPI.createdAt ? new Date(updatedContactFromAPI.createdAt).toISOString().split('T')[0] : 'N/A',
+        saved: existingContact?.saved || false,
       };
       setContacts(contacts.map((contact) => (contact.id === editContactId ? updatedContact : contact)));
       handleCloseModal();
@@ -359,6 +385,26 @@ export default function Contacts() {
       handleCloseDeleteModal();
     } catch (error) {
       console.error('Error deleting contact:', error);
+    }
+  };
+
+  const handleToggleSave = async (id: string) => {
+    const contact = contacts.find((c) => c.id === id);
+    if (!contact) return;
+
+    const newSavedState = !contact.saved;
+
+    try {
+      await axios.put(`/api/contact/${id}`, { saved: newSavedState });
+      setContacts(contacts.map((c) =>
+        c.id === id ? { ...c, saved: newSavedState } : c
+      ));
+    } catch (error) {
+      console.error('Error toggling save status:', error);
+      // Still update locally even if API fails
+      setContacts(contacts.map((c) =>
+        c.id === id ? { ...c, saved: newSavedState } : c
+      ));
     }
   };
 
