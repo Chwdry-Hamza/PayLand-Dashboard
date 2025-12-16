@@ -96,7 +96,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         {/* Total Contacts Card */}
         <div className="bg-gradient-to-br from-[#1e1e32] to-[#1a1a2e] rounded-2xl p-6 border border-gray-800 hover:border-[#ff3d00]/30 transition-all duration-300 group">
           <div className="flex items-center justify-between mb-4">
