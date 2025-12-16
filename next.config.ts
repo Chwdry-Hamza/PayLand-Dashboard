@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'https://pay-land-backoffic.vercel.app/:path*',
+        destination: 'https://pay-land-backoffic.vercel.app/api/:path*',
       },
     ];
   },
